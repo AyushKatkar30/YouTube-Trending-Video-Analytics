@@ -66,16 +66,3 @@ Interactive and filterable dashboard includes:
 - Top 10 channels account for a major chunk of views
 - Certain regions have more daily trending entries than others
 
----
-
-## 🧪 Sample Code (Python)
-```python
-from textblob import TextBlob
-
-# Sentiment analysis on titles
-df['title_polarity'] = df['title'].apply(lambda x: TextBlob(str(x)).sentiment.polarity)
-
-# Trending duration
-df['publish_time'] = pd.to_datetime(df['publish_time'])
-df['trending_date'] = pd.to_datetime(df['trending_date'], format='%y.%d.%m')
-df['trending_duration'] = (df['trending_date'] - df['publish_time']).dt.days
